@@ -1,9 +1,0 @@
-/**
- * Make body at least 100% height
- * You can also use a combination
- * of height: 100% in <html> and
- * min-height: 100% in <body>.
- */
- body {
-  min-height: 100vh;
-}
