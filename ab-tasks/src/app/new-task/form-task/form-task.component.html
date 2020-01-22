@@ -1,0 +1,69 @@
+<form [formGroup]="taskForm" novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Add a new task</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              placeholder="Description"
+              formControlName="description"
+            />
+            <mat-error
+              *ngIf="taskForm.controls['description'].hasError('required')"
+            >
+              Description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Due date" formControlName="dueDate" />
+            <mat-error
+              *ngIf="taskForm.controls['dueDate'].hasError('required')"
+            >
+              Due date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="State" formControlName="state">
+              <mat-option *ngFor="let state of states" [value]="state.id">
+                {{ state.name }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="taskForm.controls['state'].hasError('required')">
+              State is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="priority">
+            <mat-radio-button value="default">Default</mat-radio-button>
+            <mat-radio-button value="hight">High priority</mat-radio-button>
+            <mat-radio-button value="tomorrow">Next Day</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="taskForm.invalid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

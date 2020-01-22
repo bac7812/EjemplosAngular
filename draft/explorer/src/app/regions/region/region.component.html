@@ -1,0 +1,12 @@
+<app-region-card
+  *ngIf="region$ | async as region; else regionEmpty"
+  [region]="region"
+>
+</app-region-card>
+<ng-template #regionEmpty>Loading...</ng-template>
+<app-countries-list
+  *ngIf="countries$ | async as countries; else countriesEmpty"
+  [countries]="countries"
+>
+</app-countries-list>
+<ng-template #countriesEmpty>Loading...</ng-template>

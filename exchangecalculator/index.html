@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Cambio de moneda</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script></script>
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Cambio de moneda</h1>
+    </header>
+    <section>
+      <label for="fecha">Elija fecha:</label>
+      <input type="date" id="fecha" />
+    </section>
+    <section>
+      <label for="monedaOrigen">Origen:</label>
+      <select name="monedaOrigen" id="monedaOrigen">
+        <option>Seleccionar</option>
+      </select>
+    </section>
+    <section>
+      <label for="monedaDestino">Destino:</label>
+      <select name="monedaDestino" id="monedaDestino">
+        <option>Seleccionar</option>
+      </select>
+    </section>
+    <section>
+      <label for="cantidad">Cantidad: </label>
+      <input type="text" id="cantidad" placeholder="Escriba..." />
+    </section>
+    <section>
+      <button id="botonConvertir">Convertir</button>
+    </section>
+    <!--<section>
+      <h6>El tipo de cambio es 1 euro = <span id="tipoCambio"></span></h6>
+    </section>-->
+    <section>
+      <label>Resultado:</label>
+      <span id="salida"></span>
+    </section>
+  </main>
+  <script src="main.js" type="module"></script>
+</body>
+
+</html>

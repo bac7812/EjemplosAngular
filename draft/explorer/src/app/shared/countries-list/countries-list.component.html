@@ -1,0 +1,10 @@
+<mat-nav-list *ngIf="countries.length; else empty">
+  <a
+    mat-list-item
+    [routerLink]="['/','countries', country.id]"
+    *ngFor="let country of countries"
+  >
+    {{ country.name }}
+  </a>
+</mat-nav-list>
+<ng-template #empty><p>Does not exist</p></ng-template>

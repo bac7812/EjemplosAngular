@@ -1,0 +1,69 @@
+<form [formGroup]="filterForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Filter countries</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select
+              placeholder="Income level"
+              formControlName="incomeLevel"
+            >
+              <mat-option
+                *ngFor="let incomeLevel of incomeLevels"
+                [value]="incomeLevel.id"
+              >
+                {{ incomeLevel.value }}
+              </mat-option>
+            </mat-select>
+            <!--<mat-error *ngIf="filterForm.controls['incomeLevel'].hasError('required')">
+                  Income level is <strong>required</strong>
+                </mat-error>-->
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-radio-group formControlName="lendingType">
+            <mat-radio-button
+              *ngFor="let lendingType of lendingTypes"
+              [value]="lendingType.id"
+              >{{ lendingType.value }}</mat-radio-button
+            >
+          </mat-radio-group>
+          <!--<mat-error *ngIf="filterForm.controls['lendingType'].hasError('required')">
+            Type of debt regions is <strong>required</strong>
+          </mat-error>-->
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select
+              placeholder="Geographic regions"
+              formControlName="geographicRegions"
+            >
+              <mat-option *ngFor="let region of regions" [value]="region.code">
+                {{ region.name }}
+              </mat-option>
+            </mat-select>
+            <!--<mat-error *ngIf="filterForm.controls['geographicRegions'].hasError('required')">
+                Geographic regions is <strong>required</strong>
+              </mat-error>-->
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <!--<button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="filterForm.invalid"
+      >
+        Search
+      </button>-->
+      <button mat-raised-button color="primary" type="submit">
+        Search
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>

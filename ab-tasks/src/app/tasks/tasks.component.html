@@ -1,0 +1,8 @@
+<mat-nav-list *ngIf="taskList$ | async as taskList; else empty">
+  <a *ngFor="let task of taskList" mat-list-item [routerLink]="task._id">
+    {{ task.description }}
+  </a>
+</mat-nav-list>
+<ng-template #empty>
+  <h1>CARGANDO ...</h1>
+</ng-template>

@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+:host > nav {
+  order: -1;
+  flex-direction: row;
+}
+
+:host > section {
+  flex: 1 1 auto;
+}
+
+:host > aside {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  :host {
+    flex-direction: row;
+  }
+
+  :host nav,
+  :host aside {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+  }
+}
